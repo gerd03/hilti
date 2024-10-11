@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fixer Tool</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">HILTI ONTRACK 3 FIXER</h1>
+        <h2 class="subtitle">EMD - ADMIN | QM BUILDERS</h2>
+
+        <div class="input-section">
+            <div class="section">
+                <h2>Control Number Fixer</h2>
+                <textarea id="controlNumberInput" placeholder="Paste control numbers here"></textarea>
+                <button onclick="fixControlNumber()">Fix Control Numbers</button>
+                <textarea id="controlNumberOutput" readonly></textarea>
+                <button onclick="resetOutput('controlNumberOutput')">Reset Output</button>
+                <button onclick="copyOutput('controlNumberOutput')">Copy Output</button>
+            </div>
+
+            <div class="section">
+                <h2>Destination/Site Fixer</h2>
+                <textarea id="destinationInput" placeholder="Paste destination/site names here"></textarea>
+                <button onclick="fixDestination()">Fix Destination/Site</button>
+                <textarea id="destinationOutput" readonly></textarea>
+                <button onclick="resetOutput('destinationOutput')">Reset Output</button>
+                <button onclick="copyOutput('destinationOutput')">Copy Output</button>
+            </div>
+
+            <div class="section">
+                <h2>Driver/Operator Fixer</h2>
+                <textarea id="driverInput" placeholder="Paste driver/operator names here"></textarea>
+                <button onclick="fixDriver()">Fix Driver/Operator</button>
+                <textarea id="driverOutput" readonly></textarea>
+                <button onclick="resetOutput('driverOutput')">Reset Output</button>
+                <button onclick="copyOutput('driverOutput')">Copy Output</button>
+            </div>
+
+            <div class="section">
+                <h2>Plate Number/Body Number Fixer</h2>
+                <textarea id="inputText" placeholder="Paste plate numbers/body numbers here"></textarea>
+                <button onclick="fixPlateAndBody()">Fix Plate Numbers/Body Numbers</button>
+                <div class="output-area">
+                    <h3>Plate Numbers Output</h3>
+                    <textarea id="plateNumbersOutput" readonly></textarea>
+                    <button onclick="resetOutput('plateNumbersOutput')">Reset Output</button>
+                    <button onclick="copyOutput('plateNumbersOutput')">Copy Output</button>
+                </div>
+                <div class="output-area">
+                    <h3>Body Numbers Output</h3>
+                    <textarea id="bodyNumbersOutput" readonly></textarea>
+                    <button onclick="resetOutput('bodyNumbersOutput')">Reset Output</button>
+                    <button onclick="copyOutput('bodyNumbersOutput')">Copy Output</button>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>@ All rights reserved 2024. Created by: ARAR</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
