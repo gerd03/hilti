@@ -12,8 +12,8 @@ function fixPlateAndBody() {
         // Add plate number (capitalize)
         plateNumbers.push(plateMatch.toUpperCase());
 
-        // Add body number or blank space (invisible)
-        bodyNumbers.push(bodyMatch ? bodyMatch[1] : ''); // empty string for blank space
+        // Add body number (capitalize if present, or blank space for invisible)
+        bodyNumbers.push(bodyMatch ? bodyMatch[1].toUpperCase() : ''); // empty string for blank space
     });
 
     document.getElementById('plateNumbersOutput').value = plateNumbers.join('\n');
