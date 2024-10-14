@@ -9,31 +9,20 @@ function fixPlateAndBody() {
         let bodyMatch = line.match(/\(([^)]+)\)/);
         let plateMatch = line.replace(/\(.*?\)/, '').trim();
 
-        // Add plate number (capitalize)
         plateNumbers.push(plateMatch.toUpperCase());
-
-        // Add body number (capitalize if present, or blank space for invisible)
-        bodyNumbers.push(bodyMatch ? bodyMatch[1].toUpperCase() : ''); // empty string for blank space
+        bodyNumbers.push(bodyMatch ? bodyMatch[1].toUpperCase() : '');
     });
 
     document.getElementById('plateNumbersOutput').value = plateNumbers.join('\n');
     document.getElementById('bodyNumbersOutput').value = bodyNumbers.join('\n');
 }
 
-// Driver/Operator Fixer
-function fixDriver() {
-    let input = document.getElementById('driverInput').value;
+// Combined Fixer for Project ID / Destination / Driver
+function fixCombined() {
+    let input = document.getElementById('combinedInput').value;
     let lines = input.split('\n');
-    let fixedDrivers = lines.map(driver => driver.toUpperCase());
-    document.getElementById('driverOutput').value = fixedDrivers.join('\n');
-}
-
-// Destination/Site Fixer
-function fixDestination() {
-    let input = document.getElementById('destinationInput').value;
-    let lines = input.split('\n');
-    let fixedDestinations = lines.map(destination => destination.toUpperCase());
-    document.getElementById('destinationOutput').value = fixedDestinations.join('\n');
+    let fixedOutput = lines.map(item => item.toUpperCase());
+    document.getElementById('combinedOutput').value = fixedOutput.join('\n');
 }
 
 // Control Number Fixer
@@ -44,15 +33,36 @@ function fixControlNumber() {
     document.getElementById('controlNumberOutput').value = fixedControlNumbers.join('\n');
 }
 
-// Copy Output
-function copyOutput(elementId) {
-    const output = document.getElementById(elementId);
+// Copy and Reset Functionality
+function copyAndReset(outputId, buttonId) {
+    const output = document.getElementById(outputId);
+    const button = document.getElementById(buttonId);
+
     output.select();
     document.execCommand('copy');
-    alert("Copied to clipboard!");
+    
+    // Change button text to check icon and "READY TO PASTE IN EXCEL"
+    button.innerHTML = '✔️ READY TO PASTE IN EXCEL';
+    button.classList.add('ready-paste');
+    
+    // Reset back to "Copy" after 3 seconds
+    setTimeout(() => {
+        button.innerHTML = 'Copy';
+        button.classList.remove('ready-paste');
+    }, 3000);
+    
+    // Clear output and input fields after copying
+    output.value = '';
+    clearInput(outputId);  // Custom clear input function
 }
 
-// Reset Output
-function resetOutput(elementId) {
-    document.getElementById(elementId).value = '';
+// Clear the corresponding input fields
+function clearInput(outputId) {
+    if (outputId === 'controlNumberOutput') {
+        document.getElementById('controlNumberInput').value = '';
+    } else if (outputId === 'combinedOutput') {
+        document.getElementById('combinedInput').value = '';
+    } else if (outputId === 'plateNumbersOutput' || outputId === 'bodyNumbersOutput') {
+        document.getElementById('inputText').value = '';
+    }
 }
