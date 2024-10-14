@@ -84,3 +84,20 @@ textarea[readonly] {
     margin-top: 20px;
     font-size: 14px;
 }
+
+button.copy-checked {
+    background-color: #00FF00;
+}
+
+.copy-btn {
+    display: block;
+    margin: 0 auto;
+    width: 160px;
+}
+
+button.ready-paste {
+    background-color: #00FF00;
+    color: black;
+    width: auto;
+    padding: 10px;
+}
