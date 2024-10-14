@@ -17,26 +17,15 @@
                 <textarea id="controlNumberInput" placeholder="Paste control numbers here"></textarea>
                 <button onclick="fixControlNumber()">Fix Control Numbers</button>
                 <textarea id="controlNumberOutput" readonly></textarea>
-                <button onclick="resetOutput('controlNumberOutput')">Reset Output</button>
-                <button onclick="copyOutput('controlNumberOutput')">Copy Output</button>
+                <button id="controlCopyBtn" class="copy-btn" onclick="copyAndReset('controlNumberOutput', 'controlCopyBtn')">Copy</button>
             </div>
 
             <div class="section">
-                <h2>Destination/Site Fixer</h2>
-                <textarea id="destinationInput" placeholder="Paste destination/site names here"></textarea>
-                <button onclick="fixDestination()">Fix Destination/Site</button>
-                <textarea id="destinationOutput" readonly></textarea>
-                <button onclick="resetOutput('destinationOutput')">Reset Output</button>
-                <button onclick="copyOutput('destinationOutput')">Copy Output</button>
-            </div>
-
-            <div class="section">
-                <h2>Driver/Operator Fixer</h2>
-                <textarea id="driverInput" placeholder="Paste driver/operator names here"></textarea>
-                <button onclick="fixDriver()">Fix Driver/Operator</button>
-                <textarea id="driverOutput" readonly></textarea>
-                <button onclick="resetOutput('driverOutput')">Reset Output</button>
-                <button onclick="copyOutput('driverOutput')">Copy Output</button>
+                <h2>Project ID / Destination / Driver Fixer</h2>
+                <textarea id="combinedInput" placeholder="Paste Project ID, Destination/Site, or Driver/Operator names here"></textarea>
+                <button onclick="fixCombined()">Fix Project ID / Destination / Driver</button>
+                <textarea id="combinedOutput" readonly></textarea>
+                <button id="combinedCopyBtn" class="copy-btn" onclick="copyAndReset('combinedOutput', 'combinedCopyBtn')">Copy</button>
             </div>
 
             <div class="section">
@@ -46,14 +35,12 @@
                 <div class="output-area">
                     <h3>Plate Numbers Output</h3>
                     <textarea id="plateNumbersOutput" readonly></textarea>
-                    <button onclick="resetOutput('plateNumbersOutput')">Reset Output</button>
-                    <button onclick="copyOutput('plateNumbersOutput')">Copy Output</button>
+                    <button id="plateCopyBtn" class="copy-btn" onclick="copyAndReset('plateNumbersOutput', 'plateCopyBtn')">Copy</button>
                 </div>
                 <div class="output-area">
                     <h3>Body Numbers Output</h3>
                     <textarea id="bodyNumbersOutput" readonly></textarea>
-                    <button onclick="resetOutput('bodyNumbersOutput')">Reset Output</button>
-                    <button onclick="copyOutput('bodyNumbersOutput')">Copy Output</button>
+                    <button id="bodyCopyBtn" class="copy-btn" onclick="copyAndReset('bodyNumbersOutput', 'bodyCopyBtn')">Copy</button>
                 </div>
             </div>
         </div>
